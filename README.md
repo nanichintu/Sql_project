@@ -1,73 +1,80 @@
-# 📚 Online Book Store - SQL Project
+# 📚 Online Book Store SQL Project
 
 ## 📝 Project Summary
 
-This project simulates an **Online Book Store Booking System** where customers can browse and order books online. It includes three main datasets represented as CSV files:
+This project models an **Online Book Store** where customers can purchase books and place orders. It contains three key datasets representing customers, books, and orders. These datasets are designed with relational integrity using common columns to enable meaningful data analysis and reporting.
 
-- **books.csv** — Contains book details like `book_id`, `title`, `author`, `genre`, `price`, and available stock.
-- **customer.csv** — Contains customer data including `user_id`, `name`, `email`, and registration date.
-- **order.csv** — Contains order records that link books and customers through `book_id` and `user_id`, along with order date and status.
-
-The project structure ensures relational integrity by using **common columns with identical names and data types** across tables. This design supports effective JOIN operations, allowing for insightful queries such as total sales by book, order statuses, and customer activity.
-
-This project offers hands-on practice in SQL fundamentals including table creation, data insertion, querying with joins, filtering, aggregation, and data analysis — ideal for learners and professionals polishing their SQL skills.
+The project provides a practical scenario to apply SQL skills such as table creation, data insertion, joins, aggregations, filtering, and complex queries — helping learners and developers build real-world database proficiency.
 
 ---
 
-## 🗃️ Tables and Structure
+## 🗂️ Datasets and Table Structure
 
-### 1. `books.csv`
-- `book_id` (INT) — Primary key
-- `title` (VARCHAR)
-- `author` (VARCHAR)
-- `genre` (VARCHAR)
-- `price` (DECIMAL)
-- `stock_quantity` (INT)
+### 1. Customers Table (`customers`)
 
-### 2. `customer.csv`
-- `user_id` (INT) — Primary key
-- `name` (VARCHAR)
-- `email` (VARCHAR)
-- `registration_date` (DATE)
+| Column Name   | Data Type | Description                    |
+| ------------- | --------- | ------------------------------|
+| Customer_ID   | INT       | Unique identifier for customer |
+| Name          | VARCHAR   | Customer's full name           |
+| Email         | VARCHAR   | Customer email address         |
+| Phone         | VARCHAR   | Customer phone number          |
+| City          | VARCHAR   | City where the customer lives  |
+| Country       | VARCHAR   | Country of residence           |
 
-### 3. `order.csv`
-- `order_id` (INT) — Primary key
-- `book_id` (INT) — Foreign key referencing `books.book_id`
-- `user_id` (INT) — Foreign key referencing `customer.user_id`
-- `order_date` (DATE)
-- `status` (VARCHAR) — e.g., Confirmed, Cancelled
+### 2. Books Table (`books`)
+
+| Column Name    | Data Type | Description                       |
+| -------------- | --------- | ---------------------------------|
+| Book_ID        | INT       | Unique identifier for each book   |
+| Title          | VARCHAR   | Title of the book                 |
+| Author         | VARCHAR   | Author's name                    |
+| Genre          | VARCHAR   | Book genre (e.g., Fiction, Sci-Fi) |
+| Published_Year | YEAR      | Year the book was published       |
+| Price          | DECIMAL   | Price of the book                 |
+| Stock          | INT       | Number of copies available        |
+
+### 3. Orders Table (`orders`)
+
+| Column Name   | Data Type | Description                         |
+| ------------- | --------- | ----------------------------------|
+| Order_ID      | INT       | Unique order identifier             |
+| Customer_ID   | INT       | Foreign key referencing Customers  |
+| Book_ID       | INT       | Foreign key referencing Books       |
+| Order_Date    | DATE      | Date when the order was placed      |
+| Quantity     | INT       | Number of books ordered              |
+| Total_Amount | DECIMAL   | Total price for the order (Price * Quantity) |
 
 ---
 
-## 🔗 Common Columns for JOINs
+## 🔗 Relationships and Common Columns
 
-To ensure data consistency and enable relational queries, these tables share key columns:
+The tables are linked by the following common columns:
 
-- `book_id` connects `books.csv` and `order.csv`
-- `user_id` connects `customer.csv` and `order.csv`
+- `Customer_ID` in **Customers** and **Orders** tables  
+- `Book_ID` in **Books** and **Orders** tables  
 
-These common columns are of the same data type and column name, which facilitates efficient JOIN operations to combine data across tables for reports and analysis.
+These shared columns maintain relational integrity, enable JOIN operations, and facilitate complex queries such as tracking orders by customers or analyzing book sales.
 
 ---
 
-## 💡 Sample Queries and Use Cases
+## 💡 Example Use Cases
 
-- List all orders made by a specific user.
-- Calculate total sales revenue per book.
-- Identify books currently out of stock.
-- Retrieve customers who have never placed an order.
-- Analyze the status of all bookings (confirmed, cancelled).
+- Retrieve all orders placed by a specific customer.
+- Calculate total revenue generated by each book.
+- Find customers from a specific city who placed orders.
+- List books that are low on stock.
+- Track monthly sales and popular book genres.
 
 ---
 
 ## 🚀 Getting Started
 
-1. Import the CSV files into your preferred SQL database.
-2. Create tables using the structure above, and load the CSV data.
-3. Write SQL queries to practice joins, filters, aggregations, and subqueries.
-4. Explore reporting use cases with the dataset.
+1. Create tables based on the above structure in your SQL database.
+2. Import your data into the respective tables.
+3. Practice querying with JOINs, aggregations, and filtering to answer business questions.
+4. Extend the project by adding new tables such as payments, reviews, or discounts.
 
 ---
 
-Feel free to reach out if you want me to provide **SQL scripts**, **sample queries**, or help with anything else!
+If you want, I can also provide **SQL scripts** for creating tables and sample queries for this project. Just let me know!
 
