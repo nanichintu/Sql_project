@@ -74,7 +74,4 @@ These shared columns maintain relational integrity, enable JOIN operations, and 
 3. Practice querying with JOINs, aggregations, and filtering to answer business questions.
 4. Extend the project by adding new tables such as payments, reviews, or discounts.
 
----
-
-If you want, I can also provide **SQL scripts** for creating tables and sample queries for this project. Just let me know!
 
